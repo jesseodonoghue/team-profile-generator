@@ -9,10 +9,107 @@ const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
+const { type } = require("os");
 
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
+
+const team = []; // empty array for team members
+
+const inqManager = [
+    {
+        type: "input",
+        name: "manName",
+        message: "What is the manager's name?",
+        validate: (value) => {
+            if (value === "" || value === null) {
+                return "Name can not be empty.";
+            } else {
+                return true;
+            }
+        }
+    },
+    {
+        type: "input",
+        name: "manId",
+        message: "What is the manager's ID?",
+        validate: (value) => {
+            if (value === "" || value === null) {
+                return "ID can not be empty.";
+            } else {
+                return true;
+            }
+        }
+    },
+    {
+        type: "input",
+        name: "manPhone",
+        message: "What is the manager's office phone number?",
+        validate: (value) => {
+
+            const valid = /^[(]{0,1}[0-9]{3}[)]{0,1}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{4}$/.test(value);
+
+            if (value === "" || value === null) {
+                return "Phone number can not be empty.";                
+            } else if (valid) {
+                return true;
+            } else {
+                return "Please enter a valid phone number."
+            }
+        }
+    },
+];
+
+const inqTeam
+
+inqAddMembers = () => {
+
+    inquirer.prompt([
+        {
+            type: "list",
+            name: "role",
+            message: "Which type of employee would you like to add to the team?",
+            choices: ["Engineer", "Intern"]
+        },
+    ])
+    .then((answer) => {
+        switch (answer.role) {
+            case "Engineer":
+                team.push("Engineer");
+                break;
+            case "Intern":
+                team.push("Intern");
+                break;
+        }
+    })
+   
+}
+
+inqMoreMembers = () => {
+
+    inquirer.prompt([
+        {
+            type: 
+            
+        }
+    ])
+}
+
+createTeam = () => {
+
+    console.log("This application will help you create an engineering team.\n");
+
+ 
+
+
+
+
+}
+
+
+
+
 
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
