@@ -44,6 +44,23 @@ const inqManager = [
     },
     {
         type: "input",
+        name: "manEmail",
+        message: "What is the manager's email?",
+        validate:   (value) => {
+
+            const valid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(value)
+
+            if (value === "" || value === null) {
+                return "Email can not be empty.";
+            } else if (valid) {
+                return true;
+            } else {
+                return "Please enter a valid email."
+            }
+        }
+    },
+    {
+        type: "input",
         name: "manPhone",
         message: "What is the manager's office phone number?",
         validate: (value) => {
@@ -59,55 +76,105 @@ const inqManager = [
             }
         }
     },
-];
+]; // Array of questions for a manager
 
-const inqTeam
-
-inqAddMembers = () => {
-
-    inquirer.prompt([
-        {
-            type: "list",
-            name: "role",
-            message: "Which type of employee would you like to add to the team?",
-            choices: ["Engineer", "Intern"]
-        },
-    ])
-    .then((answer) => {
-        switch (answer.role) {
-            case "Engineer":
-                team.push("Engineer");
-                break;
-            case "Intern":
-                team.push("Intern");
-                break;
+const inqTeam = [
+    {
+        type: "list",
+        name: "empRole",
+        message: "What is the employee's role?",
+        choices: ["Engineer", "Intern"]
+    },
+    {
+        type: "input",
+        name: "empName",
+        message: "What is the employee's name?",
+        validate: (value) => {
+            if (value === "" || value === null) {
+                return "Name can not be empty.";
+            } else {
+                return true;
+            }
         }
-    })
-   
-}
-
-inqMoreMembers = () => {
-
-    inquirer.prompt([
-        {
-            type: 
-            
+    },
+    {
+        type: "input",
+        name: "empId",
+        message: "What is the employee's ID?",
+        validate: (value) => {
+            if (value === "" || value === null) {
+                return "ID can not be empty.";
+            } else {
+                return true;
+            }
         }
-    ])
+    },
+    {
+        type: "input",
+        name: "empEmail",
+        message: "What is the employee's email?",
+        validate:   (value) => {
+
+            const valid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(value)
+
+            if (value === "" || value === null) {
+                return "Email can not be empty.";
+            } else if (valid) {
+                return true;
+            } else {
+                return "Please enter a valid email."
+            }
+        }
+    }
+]; // Array of questions for an employee
+
+
+createEmployee = (name, id, email, role) => {
+
+    switch(role) {
+        case "Engineer":
+            return new Engineer(name, id, email, "");
+            break;
+        case "Intern":
+            return new Intern(name, id, email, "");
+            break;
+    }
+
 }
 
-createTeam = () => {
+init = async () => {
 
-    console.log("This application will help you create an engineering team.\n");
+    const moreEmp = true; // flag to track if there are more employees to enter
+    
+    await inquirer.prompt(inqManager).then((answers) => {
+        const manager = new Manager(answers.manName, answers.manId, answers.manEmail, answers.manPhone);
+        team.push(manager);
+    });
 
- 
+    while (moreEmp) {
 
+        await inquirer.prompt(inqTeam).then((answers) => {
+            let employee = createEmployee(answers.empName, answers.empId, answers.empEmail, answers.empRole);
+            await employee.askCustomInfo();
+            team.push(employee);
+        });
+
+        
+        await inquirer.prompt([
+            {
+                type: "confirm",
+                name: "empMore",
+                message: "Would you like to add more employees to the team?"
+            }
+        ]).then((answers) => {
+            moreEmp = answers.empMore;
+        });
+
+    }
 
 
 
 }
-
-
 
 
 
