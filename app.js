@@ -154,16 +154,26 @@ writeToFile = (fileName, data) => {
 
 init = async () => {
 
-    const moreEmp = true; // flag to track if there are more employees to enter
+    let moreEmp = true; // flag to track if there are more employees to enter
+
+    console.log(`
+    Let's build a team of engineers! Start with a manager:    
+    `);
     
     await inquirer.prompt(inqManager).then((answers) => {
         const manager = new Manager(answers.manName, answers.manId, answers.manEmail, answers.manPhone);
         team.push(manager);
     });
 
+    console.log(`
+    
+    Now let's add more members to the team:
+    
+    `);
+
     while (moreEmp) {
 
-        await inquirer.prompt(inqTeam).then((answers) => {
+        await inquirer.prompt(inqTeam).then(async (answers) => {
             let employee = createEmployee(answers.empName, answers.empId, answers.empEmail, answers.empRole);
             await employee.askCustomInfo();
             team.push(employee);
@@ -186,6 +196,10 @@ init = async () => {
     writeToFile(outputPath, output);
 
 }
+
+
+
+init();
 
 
 

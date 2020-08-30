@@ -1,0 +1,63 @@
+/* *,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+} */
+
+.jumbotron {
+    justify-content: center;
+    align-items: center;
+    background-color: #8CD3FF;
+    background-image: linear-gradient(to bottom, rgba(255,255,255,0.7) 0%,rgba(255,255,255,0.7) 100%), url(./img/background.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.jumbotron h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 4vw;
+    text-transform: uppercase;
+    text-shadow: 4px 4px grey;
+}
+
+
+
+.container {
+    height: 70vh;
+}
+
+.card {
+    box-shadow: 10px 10px lightgray;
+    margin: 1rem;
+    min-width: 240px;
+    max-width: 360px;
+}
+
+.manager .card-header{
+    background-color: red;
+    color: white;
+}
+
+.manager .card-body{
+    background-color: #FFD1D1;
+}
+
+.engineer .card-header{
+    background-color: blue;
+    color: white;
+}
+
+.engineer .card-body{
+    background-color: #BABAFF;
+}
+
+.intern .card-header{
+    background-color: green;
+    color: white;
+}
+
+.intern .card-body{
+    background-color: #CCE0CC;
+}
