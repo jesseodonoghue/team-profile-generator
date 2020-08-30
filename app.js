@@ -142,6 +142,16 @@ createEmployee = (name, id, email, role) => {
 
 }
 
+writeToFile = (fileName, data) => {
+    fs.writeFile(fileName, data, (err) => {
+        if (err) {
+            return console.log(err);
+        } 
+
+        console.log("HTML file successfully generated!!");
+    });
+}
+
 init = async () => {
 
     const moreEmp = true; // flag to track if there are more employees to enter
@@ -172,7 +182,8 @@ init = async () => {
 
     }
 
-
+    const output = render(team);
+    writeToFile(outputPath, output);
 
 }
 
