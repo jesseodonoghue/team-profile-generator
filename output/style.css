@@ -1,28 +1,35 @@
-/* *,
+*,
 *::before,
 *::after {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-} */
+}
 
 .jumbotron {
+    margin-bottom: 0;
     justify-content: center;
     align-items: center;
-    background-color: #8CD3FF;
-    background-image: linear-gradient(to bottom, rgba(255,255,255,0.7) 0%,rgba(255,255,255,0.7) 100%), url(./img/background.jpg);
-    background-repeat: no-repeat;
+    background-color: #241E20;
+    background-image: linear-gradient(to bottom, rgba(255,255,255,0.2) 0%,rgba(255,255,255,0.2) 100%), url(./img/header.jpg);
     background-position: center;
+    background-size: contain;
 }
 
 .jumbotron h1 {
     font-family: 'Montserrat', sans-serif;
-    font-size: 4vw;
+    font-size: 5vw;
     text-transform: uppercase;
     text-shadow: 4px 4px grey;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: white;
 }
 
-
+.team-area {
+    background-image: linear-gradient(to bottom, rgba(255,255,255,0.3) 0%,rgba(255,255,255,0.3) 100%), url(./img/background.jpg);
+    background-size: cover;
+    background-position: center;
+}
 
 .container {
     height: 70vh;
@@ -30,9 +37,9 @@
 
 .card {
     box-shadow: 10px 10px lightgray;
-    margin: 1rem;
+    margin: 3rem;
+    width: 20vw;
     min-width: 240px;
-    max-width: 360px;
 }
 
 .manager .card-header{
@@ -44,6 +51,15 @@
     background-color: #FFD1D1;
 }
 
+.manager li:hover {
+    background-color: #FF9E9E;
+    color: white;
+}
+
+.manager li:hover a:hover, .manager li:hover a:link, .manager li:hover a:visited {
+    color: white;
+}
+
 .engineer .card-header{
     background-color: blue;
     color: white;
@@ -53,6 +69,15 @@
     background-color: #BABAFF;
 }
 
+.engineer li:hover {
+    background-color: #9393FF;
+    color: white;
+}
+
+.engineer li:hover a:hover, .engineer li:hover a:link, .engineer li:hover a:visited {
+    color: white;
+}
+
 .intern .card-header{
     background-color: green;
     color: white;
@@ -60,4 +85,13 @@
 
 .intern .card-body{
     background-color: #CCE0CC;
+}
+
+.intern li:hover {
+    background-color: #7CDD7C;
+    color: white;
+}
+
+.intern li:hover a:hover, .intern li:hover a:link, .intern li:hover a:visited {
+    color: white;
 }
