@@ -10,7 +10,8 @@ This command line interface program asks the user for the following information 
 ![app4](https://user-images.githubusercontent.com/66024509/91682563-f9761380-eb1f-11ea-849f-821e6a97590f.png)
 
 ## Live Link
-This program is not web-based, so there is no live version. Here is a link to a video of the program in action: https://drive.google.com/file/d/1jf_59xess7G9uGafA21Hr3MxNyJvvMnc/view
+This program is not web-based, so there is no live version. Here is a link to a video of the program in action: 
+https://drive.google.com/file/d/18dY4d0_VZD9ffhpMiVl9H78sPliAi57Q/view
 
 ## License Info
 Copyright 2020, Jesse O'Donoghue
