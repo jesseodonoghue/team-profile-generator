@@ -50,17 +50,12 @@ body::after {
 }
 
 .manager .card-header{
-    background-color: red;
+    background-color: #001177;
     color: white;
 }
 
 .manager .card-body{
-    background-color: #FFD1D1;
-}
-
-.manager li:hover {
-    background-color: #FF9E9E;
-    color: white;
+    background-color: #BBC4F7;
 }
 
 .manager li:hover a:hover, .manager li:hover a:link, .manager li:hover a:visited {
@@ -68,17 +63,12 @@ body::after {
 }
 
 .engineer .card-header{
-    background-color: blue;
+    background-color: #4993FF;
     color: white;
 }
 
 .engineer .card-body{
-    background-color: #BABAFF;
-}
-
-.engineer li:hover {
-    background-color: #9393FF;
-    color: white;
+    background-color: #C1DCFF;
 }
 
 .engineer li:hover a:hover, .engineer li:hover a:link, .engineer li:hover a:visited {
@@ -86,19 +76,19 @@ body::after {
 }
 
 .intern .card-header{
-    background-color: green;
+    background-color: #9EC6FF;
     color: white;
 }
 
 .intern .card-body{
-    background-color: #CCE0CC;
-}
-
-.intern li:hover {
-    background-color: #7CDD7C;
-    color: white;
+    background-color: #DDEBFF;
 }
 
 .intern li:hover a:hover, .intern li:hover a:link, .intern li:hover a:visited {
+    color: white;
+}
+
+.manager li:hover, .engineer li:hover, .intern li:hover {
+    background-color: #9393FF;
     color: white;
 }
